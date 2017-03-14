@@ -1,0 +1,43 @@
+header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+}
+
+#booksList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 103px;
+}
+
+.book {
+	width: 250px;
+	margin: 10px;
+}
+
+input[type=text] {
+	height: 25px;
+	width: 130px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-image: url('searchicon.png');
+	background-size: 16px;
+	background-position: 5px 5px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 25px;
+	transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+	width: inherit;
+}
+
+.affix {
+	top: 0;
+	width: 100%;
+	padding-left: 40px;
+	padding-right: 40px;
+}
