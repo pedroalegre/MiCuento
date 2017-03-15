@@ -1,20 +1,10 @@
 $(document).ready(function() {
-	$.getJSON("https://micuento.com/test/get_cuentos/", function(data) {
-		showBooks(data.cuentos);
-	});
-
+	var val = "";
+	updateBookList(val);
 	// filter the books by search input
 	$("#search").keyup(function() {
-		var $cells = $.merge($(".bookTitle"), $(".bookDescription"));
 		var val = $.trim(this.value).toUpperCase();
-		if (val === "")
-			$cells.parent().show();
-		else {
-			$cells.parent().hide();
-			$cells.filter(function() {
-				return -1 != $(this).text().toUpperCase().indexOf(val);
-			}).parent().show();
-		}
+		updateBookList(val);
 	});
 });
 
@@ -27,4 +17,11 @@ function showBooks(books) {
 		$(".book").last().append("<div>Idioma: " + "<span class='text-uppercase'>" + books[i].idioma + "</span></div>");
 		$(".book").last().append("<div class='bookDescription'>" + books[i].descripcion + "</div>");
 	})
+}
+
+function updateBookList(val) {
+	$.getJSON("https://micuento.com/test/get_cuentos/" + val, function(data) {
+		$("#booksList").empty();
+		showBooks(data.cuentos);
+	});
 }
