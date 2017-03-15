@@ -14,8 +14,9 @@ header {
 }
 
 .book {
-	width: 250px;
+	width: 260px;
 	margin: 10px;
+	padding: 5px !important;
 }
 
 input[type=text] {
@@ -40,4 +41,14 @@ input[type=text]:focus {
 	width: 100%;
 	padding-left: 40px;
 	padding-right: 40px;
+}
+
+@media (max-width: 607px) {
+	header {
+		flex-direction: column;
+	}
+
+	#booksList {
+		padding-top: 130.2px;
+	}
 }
