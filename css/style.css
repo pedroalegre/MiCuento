@@ -1,19 +1,36 @@
 header {
 	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
 	background-color: white;
+	z-index: 1;
+}
+
+#logo {
+	margin-left: 40px;
+}
+
+#search {
+	margin-right: 40px;
+}
+
+#menuFooter {
+	height: 10px;
+	width: inherit;
+	background-color: #77a22f;
 }
 
 #booksList {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	padding-top: 103px;
+	padding-top: 113px;
 }
 
 .book {
+	position: relative;
 	width: 260px;
 	margin: 10px;
 	padding: 5px !important;
@@ -33,14 +50,30 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-	width: inherit;
+	width: calc(100% - 430px);
 }
 
 .affix {
 	top: 0;
 	width: 100%;
-	padding-left: 40px;
-	padding-right: 40px;
+}
+
+.overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding-top: 20px;
+	bottom: 45px;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: #77a22f;
+	text-align: center;
+	color: white;
+}
+
+.book:hover .overlay {
+	opacity: 0.9;
 }
 
 @media (max-width: 607px) {
@@ -48,7 +81,26 @@ input[type=text]:focus {
 		flex-direction: column;
 	}
 
+	#logo {
+		margin-left: 0;
+	}
+
+	#search {
+		margin-right: 0px;
+		margin-bottom: 5px;
+	}
+
 	#booksList {
-		padding-top: 130.2px;
+		padding-top: 145.2px;
+	}
+
+	input[type=text]:focus {
+		width: inherit;
+	}
+}
+
+@media (max-width: 350px) {
+	#logo {
+		width: 100%;
 	}
 }
